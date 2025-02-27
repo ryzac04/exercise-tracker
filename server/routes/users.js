@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
             });
         }
         const newUser = {
-            name: req.body.username
+            username: req.body.username
         };
 
         const user = await User.create(newUser);

@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const exercise = await Exercise.getById(id); 
+        const exercise = await Exercise.findById(id); 
         return res.status(200).json(exercise);
     } catch (error) {
         console.log(error.message); 
