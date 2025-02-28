@@ -17,7 +17,6 @@ const CreateExercise = () => {
     axios
       .get("http://localhost:5000/users")
       .then((response) => {
-        console.log("API Response:", response.data.data);
         if (response.data.data.length > 0) {
           setUsers(response.data.data.map(user => user.username));
           setUsername(response.data.data[0].username);
@@ -58,8 +57,6 @@ const CreateExercise = () => {
           >
             {
               users.map((user) => (
-                // console.log("user", user.username)
-                
                   <option
                     key={user}
                     value={user}
@@ -92,7 +89,8 @@ const CreateExercise = () => {
         </div>
         <div className='form-group'>
           <label>Date:</label>
-          <DatePicker selected={date} onChange={(date) => setDate(date)} />
+          <br />
+          <DatePicker className='form-control mt-2 mb-2' selected={date} onChange={(date) => setDate(date)} />
         </div>
         <div className='form-group'>
           <button type='submit' className='btn btn-primary'>
